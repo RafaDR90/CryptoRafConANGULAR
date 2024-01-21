@@ -1,0 +1,73 @@
+.lp__container {
+    height: 90vh;
+    width: 100%;
+    background-color: rgb(30, 30, 30);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4vw;
+  }
+  
+  .lpIzquierda {
+    height: min-content;
+    width: min-content;
+  }
+  
+  .monigoteCrypto-img__container {
+    height: 55vh;
+  }
+  
+  .monigoteCrypto-img__container img {
+    height: 100%;
+    width: auto;
+  }
+  
+  .lpDerecha {
+    color: white;
+    height: 59vh;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  h1 {
+    font-size: 2.5em; /* Añadí un tamaño de fuente más grande */
+    margin-bottom: 20px; /* Añadí un margen inferior para separarlo del párrafo */
+  }
+  
+  .lpTexto__Container {
+    margin-bottom: 20px;
+  }
+  
+  .lp-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Añadí algunos estilos al formulario */
+  .lp-form label {
+    color: #ccc;
+    margin-bottom: 8px;
+  }
+  
+  .lp-form input {
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #666;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .lp-form button {
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  

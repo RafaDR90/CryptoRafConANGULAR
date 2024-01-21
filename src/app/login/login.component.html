@@ -1,0 +1,21 @@
+<main>
+    <h3>Login</h3>
+    <div class="userForm">
+      <form>
+        <label>Email</label>
+        <input type="email" [(ngModel)]="user.email" name="email" required>
+        <label>Password</label>
+        <input type="password" [(ngModel)]="user.password" name="password" required>
+        <button (click)="login()">Login</button>
+      </form>
+    </div>
+    <div class="LoginServicesContainer">
+      <div class="LoginService">
+        <div class="imgLS">
+          <img src="../../assets/loginIcons/gmail.png" alt="Google">
+        </div>
+        <button (click)="loginWithGmail()" class="LoginServiceButton">Login with Gmail</button>
+      </div>
+    </div>
+  </main>
+  

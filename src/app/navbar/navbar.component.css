@@ -1,0 +1,59 @@
+nav {
+
+    background-color: #333;
+    color: white;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-parteIzquierda {
+    margin-left: 2vw;;
+    display: flex;
+    align-items: center;
+}
+
+.logoContainer img {
+    height: 6vh;
+    width: auto;
+    margin-right: 10px; /* Ajusta según sea necesario */
+}
+
+.nav-parteDerecha {
+    margin-right: 2vw;
+    display: flex;
+}
+
+nav button {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin: 0 10px; /* Ajusta según sea necesario */
+    font-size: 16px;
+}
+nav button::after {
+    position: absolute;
+    content: '';
+    width: 0%;
+    left: 0;
+    bottom: 0;
+    background-color: white;
+    height: 2px;
+    
+}
+nav button:hover::after{
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+}
+
+
+/* Opcional: Estilos de transición para suavizar cambios */
+nav * {
+    transition: all 0.3s ease-in-out;
+}

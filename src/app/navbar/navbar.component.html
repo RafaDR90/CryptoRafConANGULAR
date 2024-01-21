@@ -1,0 +1,17 @@
+<nav>
+    <div class="nav-parteIzquierda">
+        <div class="logoContainer">
+            <img src="../../assets/logoWeb.png" alt="Logo">
+        </div>
+        <button (click)="showLandingPage()">Home</button>
+    </div>
+    <div class="nav-parteDerecha">
+        <button *ngIf="!isUserAuthenticated" (click)="showRegister()">Create account</button>
+        <button *ngIf="!isUserAuthenticated" (click)="showLogin()" >Login</button>
+        <button *ngIf="isUserAuthenticated" (click)="showCoins()">Coins</button>
+        <button *ngIf="isUserAuthenticated" (click)="logOut()">Logout</button>
+    </div>
+    <div>
+        
+    </div>
+</nav>
