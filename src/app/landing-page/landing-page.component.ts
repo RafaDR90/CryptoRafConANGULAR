@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { UsuarioServiceService } from '../usuario-service.service';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-landing-page',
   standalone: true,

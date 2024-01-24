@@ -3,12 +3,14 @@
         <div class="logoContainer">
             <img src="../../assets/logoWeb.png" alt="Logo">
         </div>
-        <button (click)="showLandingPage()">Home</button>
+        <a routerLink="landing-page" routerLinkActive="routerActiveButton">Home</a>
+        
     </div>
     <div class="nav-parteDerecha">
-        <button *ngIf="!isUserAuthenticated" (click)="showRegister()">Create account</button>
-        <button *ngIf="!isUserAuthenticated" (click)="showLogin()" >Login</button>
-        <button *ngIf="isUserAuthenticated" (click)="showCoins()">Coins</button>
+        <a *ngIf="!isUserAuthenticated" routerLink="register" routerLinkActive="routerActiveButton">Create account</a>
+        <a *ngIf="!isUserAuthenticated" routerLink="login" routerLinkActive="routerActiveButton">Login</a>
+        <a *ngIf="isUserAuthenticated" routerLink="coins" routerLinkActive="routerActiveButton">Coins</a> 
+        
         <button *ngIf="isUserAuthenticated" (click)="logOut()">Logout</button>
     </div>
     <div>
