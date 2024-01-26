@@ -3,5 +3,7 @@
     <div class="imgDetalle__container">
         <img src="{{moneda.image.large}}" alt="">
     </div>
-    <p class="descripcion">{{moneda.description.en}}</p>
+    <p class="precio">{{moneda.market_data.current_price.eur}} €</p>
+    <p class="descripcion" [ngClass]="{'expandida': expandirDescripcion}" [innerHTML]="expandirDescripcion ? moneda.description.en : (moneda.description.en | slice:0:50) + (moneda.description.en.length > 50 ? '...' : '')"></p>    
+    <button (click)="expandirDescripcion = !expandirDescripcion" *ngIf="moneda.description.en.length > 50">Read more</button>
 </div>

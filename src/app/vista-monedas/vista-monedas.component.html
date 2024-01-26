@@ -3,15 +3,15 @@
         <h2 class="dark-text">Most wanted coins:</h2>
         <div class="mwc__cards--container">
             <div *ngFor="let moneda of monedas" class="mw__card dark-card">
-                <p class="cardTittle dark-text">{{moneda.item.name}}</p>
-                <img class="cardImg" src="{{moneda.item.thumb}}" alt="Imagen de la moneda">
+                <p class="cardTitle dark-text">{{ moneda.item.name }}</p>
+                <img class="sparklineImg" src="{{ moneda.item.data.sparkline }}" alt="Sparkline">
+                <img class="cardImg" src="{{ moneda.item.thumb }}" alt="Coin Image">
                 <div class="priceContainer">
-                    <p class="btcPrice dark-text">BTC {{moneda.item.price_btc}}</p>
-                    <p class="Price dark-text">{{moneda.item.data.price}}</p>
-                    <p class="price dark-text">€ {{toEur(moneda.item.data.price)}}</p>
+                    <p class="btcPrice dark-text">BTC {{ moneda.item.price_btc }}</p>
+                    <p class="price dark-text">{{ moneda.item.data.price }} €</p>
                     <div class="btns">
-                    <a routerLink="/coins/{{moneda.item.id}}">Ver detalle</a>
-                    <button (click)="followCoin(moneda.item.id)">Follow</button>
+                        <a routerLink="/coins/{{ moneda.item.id }}">Ver detalle</a>
+                        <button (click)="followCoin(moneda.item.id)">Follow</button>
                     </div>
                 </div>
             </div>
@@ -22,7 +22,7 @@
         <input type="text" id="buscarMoneda" (ngModelChange)="buscarMonedaPorNombre()" [(ngModel)]="buscarMoneda">
         <ul>
             <li *ngFor="let moneda of monedasEncontradas">
-                <a routerLink="/coins/{{moneda.id}}">{{moneda.name}}</a>
+                <a routerLink="/coins/{{ moneda.id }}">{{ moneda.name }}</a>
                 <button (click)="followCoin(moneda.id)">Follow</button>
             </li>
         </ul>

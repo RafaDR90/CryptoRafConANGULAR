@@ -1,33 +1,9 @@
-/* Estilo oscuro para la sección de monedas más buscadas */
-.dark-theme {
-  background-color: #1e1e1e;  /* Color de fondo oscuro */
-  color: #fff;  /* Color de texto blanco */
+.mwc__cards--container{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
-
-.dark-text {
-  color: #fff;  /* Color de texto blanco */
-}
-
-.dark-card {
-  background-color: #333;  /* Color de fondo oscuro para las tarjetas */
-  color: #fff;  /* Color de texto blanco para las tarjetas */
-}
-
-.cardTittle {
-  font-size: 18px;  /* Tamaño de fuente para el título de la tarjeta */
-}
-
-.cardImg {
-  max-width: 100%;  /* Ajustar la imagen al ancho máximo de su contenedor */
-  height: auto;  /* Altura automática para mantener la proporción original */
-}
-
-.priceContainer {
-  margin-top: 10px;  /* Espacio superior para el contenedor de precios */
-}
-
-.btcPrice,
-.Price,
-.price {
-  font-size: 14px;  /* Tamaño de fuente para los precios */
+.mw__card dark-card{
+  display: flex;
+  flex-direction: row;
 }

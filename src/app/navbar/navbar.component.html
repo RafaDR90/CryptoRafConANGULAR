@@ -1,19 +1,21 @@
-<nav>
-    <div class="nav-parteIzquierda">
-        <div class="logoContainer">
-            <img src="../../assets/logoWeb.png" alt="Logo">
+<header>
+    <nav>
+        <div class="nav-parteIzquierda">
+            <div class="logoContainer">
+                <img src="../../assets/logoWeb.png" alt="Logo">
+            </div>
+            <a routerLink="landing-page" routerLinkActive="routerActiveButton">Home</a>
+            
         </div>
-        <a routerLink="landing-page" routerLinkActive="routerActiveButton">Home</a>
-        
-    </div>
-    <div class="nav-parteDerecha">
-        <a *ngIf="!isUserAuthenticated" routerLink="register" routerLinkActive="routerActiveButton">Create account</a>
-        <a *ngIf="!isUserAuthenticated" routerLink="login" routerLinkActive="routerActiveButton">Login</a>
-        <a *ngIf="isUserAuthenticated" routerLink="coins" routerLinkActive="routerActiveButton">Coins</a> 
-        
-        <button *ngIf="isUserAuthenticated" (click)="logOut()">Logout</button>
-    </div>
-    <div>
-        
-    </div>
-</nav>
+        <div class="nav-parteDerecha">
+            <a *ngIf="!isUserAuthenticated" routerLink="register" routerLinkActive="routerActiveButton">Create account</a>
+            <a *ngIf="!isUserAuthenticated" routerLink="login" routerLinkActive="routerActiveButton">Login</a>
+            <a *ngIf="isUserAuthenticated" routerLink="coins" routerLinkActive="routerActiveButton">Coins</a> 
+            
+            <button *ngIf="isUserAuthenticated" (click)="logOut()">Logout</button>
+        </div>
+        <div>
+            
+        </div>
+    </nav>
+</header>
