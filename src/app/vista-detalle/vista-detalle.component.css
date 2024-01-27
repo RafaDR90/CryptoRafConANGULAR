@@ -1,0 +1,67 @@
+.detalleContainer {
+    background-color: #000000;
+    color: #fff;
+    padding: 20px;
+    
+    
+  }
+  .detalleContainer a {
+    color: #fff;
+    text-decoration: none;
+    background-color: #555;
+    border: 1px solid #666;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 10px;
+    display: inline-block;
+  }
+  
+  .detalleContainer a:hover {
+    background-color: #777;
+  }
+  
+  .detalleContainer h2 {
+    margin: 20px 0;
+  }
+  
+  .detalleContainer img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .detalleContainer .precio {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .detalleContainer .descripcion {
+    margin-bottom: 20px;
+  }
+  
+  .detalleContainer .expandida {
+    white-space: normal;
+  }
+  
+  .detalleContainer button {
+    color: #fff;
+    background-color: #555;
+    border: 1px solid #666;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .detalleContainer button:hover {
+    background-color: #777;
+  }
+  
+  .detalleContainer .grafica {
+    margin-top: 20px;
+  }
+  
+  #chart {
+    max-width: 100%;
+  }
+  

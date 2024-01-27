@@ -1,14 +1,26 @@
 <div class="dark-theme">
     <section class="buscarSection">
+        <div class="MonedasSeguidas">
+            <h2>Coins followed:</h2>
+            <ul class="listaMonedasSeguidas">
+                <li class="cardMonedaSeguida" *ngFor="let moneda of monedasSeguidas">
+                  <div class="contenedorImg">
+                    <img class="buscadasimg" src="{{ moneda.img }}" alt="Coin Image">
+                  </div>
+                  <a routerLink="/coins/{{ moneda.coinId }}">View details</a>
+                  <button (click)="borrarMonedaSeguida(moneda.coinId)">Unfollow</button>
+                </li>
+              </ul>
+        </div>
         <h2 class="">Most wanted coins:</h2>
         <label for="buscarMoneda">Coins search: </label>
         <input type="text" id="buscarMoneda" (ngModelChange)="buscarMonedaPorNombre()" [(ngModel)]="buscarMoneda">
-        <ul>
-            <li *ngFor="let moneda of monedasEncontradas">
-                <img class="buscadasimg" src="{{ moneda.thumb }}" alt="Coin Image">
+        <ul class="lista">
+            <li class="cardlista" *ngFor="let moneda of monedasEncontradas">
+                <img class="buscadasimg img" src="{{ moneda.thumb }}" alt="Coin Image">
                 <p class="nombreMoneda">{{ moneda.name }}</p>
-                <a routerLink="/coins/{{ moneda.id }}">View details</a>
-                <button (click)="followCoin(moneda.id)">Follow</button>
+                <a class="routerlink" routerLink="/coins/{{ moneda.id }}">View details</a>
+                <button class="button" (click)="followCoin(moneda.id,moneda.thumb)">Follow</button>
             </li>
         </ul>
     </section>
@@ -16,17 +28,17 @@
         
         <div class="mwc__cards--container">
             <div *ngFor="let moneda of monedas" class="mw__card">
-                <img class="cardImg" src="{{ moneda.item.thumb }}" alt="Coin Image">
+                <img class="cardImg img" src="{{ moneda.item.thumb }}" alt="Coin Image">
                 <p class="cardTitle ">{{ moneda.item.name }}</p>
-                <img class="sparklineImg" src="{{ moneda.item.data.sparkline }}" alt="Sparkline">
+                <img class="sparklineImg img" src="{{ moneda.item.data.sparkline }}" alt="Sparkline">
                 <div class="priceContainer">
                     <p class="btcPrice ">BTC {{ moneda.item.price_btc }}</p>
                     <p class="price ">{{ moneda.item.data.price }}</p>
                     <p class="price">{{toEur(moneda.item.data.price)}} €</p>
                 </div>
                 <div class="btns">
-                    <a routerLink="/coins/{{ moneda.item.id }}">View details</a>
-                    <button (click)="followCoin(moneda.item.id)">Follow</button>
+                    <a class="routerlink" routerLink="/coins/{{ moneda.item.id }}">View details</a>
+                    <button class="button" (click)="followCoin(moneda.item.id,moneda.item.thumb)">Follow</button>
                 </div>
             </div>
         </div>

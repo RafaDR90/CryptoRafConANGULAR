@@ -17,12 +17,12 @@
   color: #fff;
 }
 
-ul {
+.lista {
   list-style-type: none;
   padding: 0;
 }
 
-li {
+.cardlista {
   margin-bottom: 10px;
   display: flex;
   align-items: center;
@@ -36,7 +36,7 @@ li {
 
 
 
-button {
+.button {
   color: #fff;
   background-color: #555;
   border: 1px solid #666;
@@ -46,7 +46,7 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.button:hover {
   background-color: #202020;
 }
 
@@ -90,7 +90,7 @@ h2{
   align-items: center;
 }
 
-img {
+.img {
   height: 60px;
   border-radius: 50px;
 }
@@ -103,12 +103,13 @@ img {
 }
 
 .btns {
-  margin-left: 10%;
+  margin-left: auto;
   display: flex;
   flex-direction: row;
   gap: 1rem;
   margin-right: 0;
   align-items: center;
+  margin-right: 1vw;
 }
 
 .btcPrice, .price {
@@ -126,7 +127,7 @@ img {
 
 
 
-.dark-theme a, .dark-theme button {
+.dark-theme .routerlink, .dark-theme .button {
   color: #fff;
   background-color: #555;
   border: 1px solid #666;
@@ -135,10 +136,10 @@ img {
   text-decoration: none;
 }
 
-.dark-theme a:hover, .dark-theme button:hover {
+.dark-theme .routerlink:hover, .dark-theme .button:hover {
   background-color: #777;
 }
-a{
+.routerlink{
   white-space: nowrap;
 }
 .nombreMoneda{
@@ -150,4 +151,64 @@ a{
 }
 .buscadasimg{
   height: 100%;
+}
+
+/* Estilo para la lista de monedas seguidas */
+.listaMonedasSeguidas {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Estilo para cada tarjeta de moneda seguida */
+.cardMonedaSeguida {
+  background-color: #333; /* Fondo oscuro */
+  color: #fff; /* Texto claro */
+  border-radius: 8px;
+  margin: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrar elementos en el eje transversal */
+}
+
+/* Estilo para el contenedor de la imagen */
+.contenedorImg {
+  
+  width: 4vw;
+  margin-bottom: 10px;
+}
+.contenedorImg .buscadasimg {
+  max-width: 100%; /* Establece el ancho máximo de la imagen al 100% del contenedor */
+  height: auto;
+  border-radius: 50%;
+}
+/* Estilo para la imagen de la moneda seguida */
+.cardMonedaSeguida .buscadasimg {
+  width: 100px; /* Ajusta el ancho según sea necesario */
+  height: auto; /* Mantener la proporción de la imagen */
+}
+
+/* Estilo para el enlace "View details" */
+.cardMonedaSeguida a {
+  color: #ff9900; /* Enlace de color naranja */
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+/* Estilo para el botón "Unfollow" */
+.cardMonedaSeguida button {
+  background-color: #ff9900; /* Fondo naranja */
+  color: #333; /* Texto oscuro */
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Estilo para el botón "Unfollow" al pasar el ratón sobre él */
+.cardMonedaSeguida button:hover {
+  background-color: #fff; /* Fondo blanco */
+  color: #333; /* Texto oscuro */
 }

@@ -32,4 +32,8 @@ export class RegisterComponent {
   public registerGoogle(){
     this.usuarioService.loginGoogle()
   }
+
+  public registerGitHub(){
+    this.usuarioService.loginGitHub()
+  }
 }

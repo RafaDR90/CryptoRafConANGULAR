@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/cryptoraf",
+    "public": "dist/cryptoraf/browser",
     "ignore": [
       "firebase.json",
       "**/.*",

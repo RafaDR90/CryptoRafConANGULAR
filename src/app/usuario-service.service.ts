@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Auth,createUserWithEmailAndPassword,signInWithEmailAndPassword, signOut , signInWithPopup, GoogleAuthProvider } from '@angular/fire/auth';
+import { Auth,createUserWithEmailAndPassword,signInWithEmailAndPassword, signOut , signInWithPopup, GoogleAuthProvider, GithubAuthProvider } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -55,6 +55,18 @@ export class UsuarioServiceService {
 
   public loginGoogle(){
     signInWithPopup(this.auth, new GoogleAuthProvider())
+    .then((response:any)=>{
+      this.user = response.user;
+      console.log(this.user.uid);
+      this.router.navigate(['/coins']);
+    })
+    .catch((error:any)=>{
+      console.log(error);
+    })
+  }
+
+  public loginGitHub(){
+    signInWithPopup(this.auth, new GithubAuthProvider())
     .then((response:any)=>{
       this.user = response.user;
       console.log(this.user.uid);

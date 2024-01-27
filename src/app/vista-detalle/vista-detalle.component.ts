@@ -2,6 +2,8 @@ import { Component, Input, input, OnInit, NgModule } from '@angular/core';
 import { CoinsService } from '../coins.service';
 import { CommonModule } from '@angular/common';
 import { NgApexchartsModule } from "ng-apexcharts";
+import { Router, RouterModule } from '@angular/router';
+import { UsuarioServiceService } from '../usuario-service.service';
 import {
   ChartComponent,
   ApexAxisChartSeries,
@@ -30,7 +32,7 @@ export type ChartOptions = {
 @Component({
   selector: 'app-vista-detalle',
   standalone: true,
-  imports: [CommonModule, NgApexchartsModule],
+  imports: [CommonModule, NgApexchartsModule, RouterModule],
   templateUrl: './vista-detalle.component.html',
   styleUrl: './vista-detalle.component.css'
 })
@@ -55,11 +57,13 @@ export class VistaDetalleComponent implements OnInit{
     subtitle: {}
   };
 
-  constructor(private coinsService: CoinsService) { }
+  constructor(private coinsService: CoinsService, private router:Router, private usuario:UsuarioServiceService) { }
   
 
   ngOnInit() {
-    
+    if(!this.usuario.user.uid){
+      this.router.navigate(['login']);
+    }
 
 
     this.coinsService.getCoinDetail(this.id).subscribe((data:any)=>{
@@ -124,7 +128,8 @@ export class VistaDetalleComponent implements OnInit{
     return `${year}-${month < 10 ? '0' : ''}${month}-${day < 10 ? '0' : ''}${day}`;
   }
 
-  followCoin(id:any){
-    console.log("se sigue la moneda con id: "+id);
+  followCoin(id:any,img:any){
+     //sube a firestore
+     this.coinsService.followCoin(id,this.usuario.user.uid,img);
   }
 }

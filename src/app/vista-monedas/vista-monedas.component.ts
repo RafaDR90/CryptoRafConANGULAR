@@ -4,7 +4,6 @@ import { Router,RouterModule } from '@angular/router';
 import { CoinsService } from '../coins.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 
 
@@ -22,6 +21,7 @@ export class VistaMonedasComponent {
   buscarMoneda:string="";
   monedasEncontradas:any[]=[];
   timeoutId:any;
+  monedasSeguidas:any[]=[];
 
   buscarMonedaPorNombre() {
     console.log(this.buscarMoneda);
@@ -29,25 +29,34 @@ export class VistaMonedasComponent {
     this.timeoutId = setTimeout(() => {
       this.coinService.buscarMonedaPorNombre(this.buscarMoneda).subscribe((data:any)=>{
         this.monedasEncontradas=data.coins;
-        console.log(this.monedasEncontradas);
       })
     }, 1000);
   }
   
-  followCoin(id:any){
-    console.log("se sigue la moneda con id: "+id);
+  followCoin(id:any,img:any){
+    //sube a firestore
+    this.coinService.followCoin(id,this.usuarioService.user.uid,img);
+    //actualiza la lista de monedas seguidas
+    this.coinService.obtenerDatosFirestore(this.usuarioService.user.uid).then((querySnapshot)=>{
+      this.monedasSeguidas=[];
+      querySnapshot.forEach((doc)=>{
+        this.monedasSeguidas.push(doc.data());
+      })
+    })
   }
     
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     if (this.usuarioService.user.uid == null) {
       this.router.navigate(['/']);
-    }else{
-      this.coinService.getMostWantedCoins().subscribe((data:any)=>{
-        this.monedas=data.coins;
+    } else {
+      this.coinService.getMostWantedCoins().subscribe((data: any) => {
+        this.monedas = data.coins;
         console.log(this.monedas);
-      })
-      
+      });
+  
+      const querySnapshot = await this.coinService.obtenerDatosFirestore(this.usuarioService.user.uid);
+      this.monedasSeguidas = querySnapshot.docs.map(doc => doc.data());
     }
   }
 
@@ -59,6 +68,15 @@ export class VistaMonedasComponent {
       console.error('Error: dolar no es un número válido');
       return 0; // O el valor que prefieras en caso de error
     }
+  }
+  borrarMonedaSeguida(id:any){
+    this.coinService.borrarMonedaSeguida(id,this.usuarioService.user.uid);
+    this.coinService.obtenerDatosFirestore(this.usuarioService.user.uid).then((querySnapshot)=>{
+      this.monedasSeguidas=[];
+      querySnapshot.forEach((doc)=>{
+        this.monedasSeguidas.push(doc.data());
+      })
+    })
   }
 
 
