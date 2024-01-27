@@ -5,5 +5,26 @@
     </div>
     <p class="precio">{{moneda.market_data.current_price.eur}} €</p>
     <p class="descripcion" [ngClass]="{'expandida': expandirDescripcion}" [innerHTML]="expandirDescripcion ? moneda.description.en : (moneda.description.en | slice:0:50) + (moneda.description.en.length > 50 ? '...' : '')"></p>    
-    <button (click)="expandirDescripcion = !expandirDescripcion" *ngIf="moneda.description.en.length > 50">Read more</button>
+    <div>
+        <button (click)="expandirDescripcion = !expandirDescripcion" *ngIf="moneda.description.en.length > 50">Read more</button>
+        <button (click)="followCoin(moneda.id)">Follow</button>
+    </div>
+    <div class="grafica">
+        <div *ngIf="precioPorDia">
+            <div id="chart">
+                <apx-chart
+                  [series]="chartOptions.series"
+                  [chart]="chartOptions.chart"
+                  [xaxis]="chartOptions.xaxis"
+                  [stroke]="chartOptions.stroke"
+                  [dataLabels]="chartOptions.dataLabels"
+                  [yaxis]="chartOptions.yaxis"
+                  [labels]="chartOptions.labels"
+                  [legend]="chartOptions.legend"
+                  [title]="chartOptions.title"
+                  [subtitle]="chartOptions.subtitle"
+                ></apx-chart>
+              </div>
+          </div>
+    </div>
 </div>

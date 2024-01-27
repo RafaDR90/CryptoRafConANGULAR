@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "cryptoraf-75345": {
+      "hosting": {
+        "cryptoraf": [
+          "cryptoraf-75345"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "cryptoraf-75345"
+  }
+}

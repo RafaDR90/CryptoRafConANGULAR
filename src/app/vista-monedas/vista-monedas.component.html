@@ -1,30 +1,35 @@
-<div>
-    <section *ngIf="monedas" class="monedasMasBuscadas__container dark-theme">
-        <h2 class="dark-text">Most wanted coins:</h2>
-        <div class="mwc__cards--container">
-            <div *ngFor="let moneda of monedas" class="mw__card dark-card">
-                <p class="cardTitle dark-text">{{ moneda.item.name }}</p>
-                <img class="sparklineImg" src="{{ moneda.item.data.sparkline }}" alt="Sparkline">
-                <img class="cardImg" src="{{ moneda.item.thumb }}" alt="Coin Image">
-                <div class="priceContainer">
-                    <p class="btcPrice dark-text">BTC {{ moneda.item.price_btc }}</p>
-                    <p class="price dark-text">{{ moneda.item.data.price }} €</p>
-                    <div class="btns">
-                        <a routerLink="/coins/{{ moneda.item.id }}">Ver detalle</a>
-                        <button (click)="followCoin(moneda.item.id)">Follow</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="dark-theme">
     <section class="buscarSection">
+        <h2 class="">Most wanted coins:</h2>
         <label for="buscarMoneda">Coins search: </label>
         <input type="text" id="buscarMoneda" (ngModelChange)="buscarMonedaPorNombre()" [(ngModel)]="buscarMoneda">
         <ul>
             <li *ngFor="let moneda of monedasEncontradas">
-                <a routerLink="/coins/{{ moneda.id }}">{{ moneda.name }}</a>
+                <img class="buscadasimg" src="{{ moneda.thumb }}" alt="Coin Image">
+                <p class="nombreMoneda">{{ moneda.name }}</p>
+                <a routerLink="/coins/{{ moneda.id }}">View details</a>
                 <button (click)="followCoin(moneda.id)">Follow</button>
             </li>
         </ul>
     </section>
+    <section *ngIf="monedas" class="monedasMasBuscadas__container dark-theme">
+        
+        <div class="mwc__cards--container">
+            <div *ngFor="let moneda of monedas" class="mw__card">
+                <img class="cardImg" src="{{ moneda.item.thumb }}" alt="Coin Image">
+                <p class="cardTitle ">{{ moneda.item.name }}</p>
+                <img class="sparklineImg" src="{{ moneda.item.data.sparkline }}" alt="Sparkline">
+                <div class="priceContainer">
+                    <p class="btcPrice ">BTC {{ moneda.item.price_btc }}</p>
+                    <p class="price ">{{ moneda.item.data.price }}</p>
+                    <p class="price">{{toEur(moneda.item.data.price)}} €</p>
+                </div>
+                <div class="btns">
+                    <a routerLink="/coins/{{ moneda.item.id }}">View details</a>
+                    <button (click)="followCoin(moneda.item.id)">Follow</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
 </div>
