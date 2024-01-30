@@ -20,4 +20,7 @@ export class LoginComponent {
   public loginWithGmail(){
     this.usuarioService.loginGoogle()
   }
+  public registerGitHub(){
+    this.usuarioService.loginGitHub()
+  }
 }
